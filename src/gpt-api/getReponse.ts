@@ -2,7 +2,12 @@ import { $gpt } from "./index.js";
 
 export const getResponse = async (text: string) => {
   const template = {
-    messages: [{ content: "Проанализируй отзывы, выдели плюсы и минусы, о чем пишут чаще" + text, role: "user" }],
+    messages: [
+      {
+        content: "Пришли аналитику отзывов по товару, выдели плюсы и минусы, о чем пишут чаще, пришли самый лучший положительный и отрицательный отзывы, пиши максимально подробно" + text,
+        role: "user",
+      },
+    ],
     model: "gpt-4",
   };
   try {
