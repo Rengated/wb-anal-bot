@@ -12,7 +12,7 @@ const bot = new TelegramBot(process.env.BOT_KEY!, {
   polling: true,
 });
 
-const browser = await puppeteer.launch({ headless: true });
+const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
 
 bot.on("text", async (message: any) => {
   if (message.text == "/start") {
