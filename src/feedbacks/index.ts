@@ -1,8 +1,11 @@
 import axios from "axios";
 
 const fetchFeedbacks = async (id: string) => {
-  const response = (await axios.get(`https://feedbacks1.wb.ru/feedbacks/v1/${id}`)).data;
-  console.log(id, response);
+  let response = (await axios.get(`https://feedbacks1.wb.ru/feedbacks/v1/${id}`)).data;
+  if (!response.feedbacks) {
+    response = (await axios.get(`https://feedbacks2.wb.ru/feedbacks/v1/${id}`)).data;
+  }
+
   return response;
 };
 
