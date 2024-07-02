@@ -9,7 +9,10 @@ export const scrapHtml = async (link: string, browser: Browser): Promise<string>
     try {
       browser.close();
     } catch (err) {}
-    browser = await puppeteer.launch();
+    browser = await puppeteer.launch({
+      headless: true, // Runs Chromium in headless mode.
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
     page = await browser.newPage();
   }
   await page.goto(link, { waitUntil: "networkidle2" });
