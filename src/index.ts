@@ -1,9 +1,6 @@
-import axios from "axios";
 import TelegramBot from "node-telegram-bot-api";
 import { getResponse } from "./gpt-api/getReponse.js";
-import { parse } from "node-html-parser";
 import { fetchFeedbacks, filterFeedbacks } from "./feedbacks/index.js";
-
 import "dotenv/config";
 import { scrapHtml } from "./parser/index.js";
 import puppeteer from "puppeteer";

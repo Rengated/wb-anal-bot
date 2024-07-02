@@ -21,6 +21,6 @@ export const getResponse = async (text: string) => {
     const response = await $gpt.post("chat/completions", template);
     return response.data.choices[0].message.content;
   } catch (err) {
-    return "Произошла ошибка";
+    return JSON.stringify(err);
   }
 };
