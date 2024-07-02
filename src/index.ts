@@ -9,7 +9,7 @@ const bot = new TelegramBot(process.env.BOT_KEY!, {
   polling: true,
 });
 
-const browser = await puppeteer.launch({
+let browser = await puppeteer.launch({
   headless: true, // Runs Chromium in headless mode.
   args: ["--no-sandbox", "--disable-setuid-sandbox"],
 });
